@@ -1,0 +1,17 @@
+{
+  "status": "SUCCEEDED",
+  "digest": "Portfolio flat; costs within budget; no evidence for action.",
+  "plan": [
+    {
+      "order": 1,
+      "action": "hold",
+      "target": "portfolio",
+      "evidence_refs": [],
+      "expected_outcome": "wait for evidence"
+    }
+  ],
+  "usage": {
+    "tokens_in": 3000,
+    "tokens_out": 500
+  }
+}

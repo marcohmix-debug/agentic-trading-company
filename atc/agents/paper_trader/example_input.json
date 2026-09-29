@@ -1,0 +1,23 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "paper_trader",
+  "work_item_type": "extract",
+  "work_item_id": "paper-signals-2026-08-24",
+  "task": {
+    "portfolio": {
+      "paper": {
+        "cash_available_cents": 500000
+      }
+    },
+    "signals": [
+      {
+        "strategy_id": "77aa",
+        "signal": "LONG_ENTRY",
+        "instrument": "BTCUSDT"
+      }
+    ],
+    "mids": {
+      "BTCUSDT": 6200000
+    }
+  }
+}

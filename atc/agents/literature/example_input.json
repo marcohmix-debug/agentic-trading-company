@@ -1,0 +1,14 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "literature",
+  "work_item_type": "summarize",
+  "work_item_id": "arxiv-2608.12345",
+  "task": {
+    "items": [
+      {
+        "url": "https://arxiv.org/abs/2608.12345",
+        "abstract": "\u2026"
+      }
+    ]
+  }
+}

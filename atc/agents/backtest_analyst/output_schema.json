@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "backtest_analyst output contract",
+  "type": "object",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "NO_OP",
+        "FAILED"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "table",
+              "data"
+            ],
+            "properties": {
+              "table": {
+                "const": "backtests"
+              },
+              "data": {
+                "type": "object",
+                "required": [
+                  "strategy_id",
+                  "params_json",
+                  "success_criteria_json"
+                ],
+                "properties": {
+                  "strategy_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "dataset_id": {
+                    "type": "string"
+                  },
+                  "params_json": {
+                    "type": "object",
+                    "required": [
+                      "fees_bps",
+                      "slippage_bps"
+                    ],
+                    "properties": {
+                      "fees_bps": {
+                        "type": "integer",
+                        "minimum": 10
+                      },
+                      "slippage_bps": {
+                        "type": "integer",
+                        "minimum": 5
+                      },
+                      "walk_forward": {
+                        "type": "object",
+                        "properties": {
+                          "folds": {
+                            "type": "integer",
+                            "minimum": 2
+                          },
+                          "train_ratio": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "exclusiveMaximum": 1
+                          }
+                        }
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  "success_criteria_json": {
+                    "type": "object",
+                    "minProperties": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

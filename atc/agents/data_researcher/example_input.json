@@ -1,0 +1,14 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "data_researcher",
+  "work_item_type": "extract",
+  "work_item_id": "data-inventory-2026-08-24",
+  "task": {
+    "data_inventory": [
+      {
+        "source": "bybit_public",
+        "status": "ACTIVE"
+      }
+    ]
+  }
+}

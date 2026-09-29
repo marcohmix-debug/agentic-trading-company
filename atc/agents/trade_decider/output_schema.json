@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "trade_decider output contract",
+  "type": "object",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "NO_OP",
+        "FAILED"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "table",
+              "data"
+            ],
+            "properties": {
+              "table": {
+                "const": "suggestions"
+              },
+              "data": {
+                "type": "object",
+                "required": [
+                  "venue",
+                  "instrument",
+                  "direction",
+                  "quantity",
+                  "price_limit_cents",
+                  "strategy_id",
+                  "live"
+                ],
+                "properties": {
+                  "venue": {
+                    "type": "string"
+                  },
+                  "instrument": {
+                    "type": "string"
+                  },
+                  "direction": {
+                    "enum": [
+                      "LONG_ENTRY",
+                      "LONG_EXIT",
+                      "SHORT_ENTRY",
+                      "SHORT_EXIT"
+                    ]
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "price_limit_cents": {
+                    "type": "integer"
+                  },
+                  "slippage_tolerance_bps": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "strategy_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "estimated_notional_cents": {
+                    "type": "integer"
+                  },
+                  "live": {
+                    "enum": [
+                      0,
+                      1
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

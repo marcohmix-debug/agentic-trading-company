@@ -1,0 +1,25 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "critiques",
+      "data": {
+        "target_type": "strategy_idea",
+        "target_id": "4f2a",
+        "verdict": "PASS",
+        "score": 62,
+        "flaws_json": [
+          {
+            "name": "sample_size",
+            "severity": "minor",
+            "detail": "n=30"
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 2500,
+    "tokens_out": 400
+  }
+}

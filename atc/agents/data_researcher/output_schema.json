@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "data_researcher output contract",
+  "type": "object",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "NO_OP",
+        "FAILED"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "table",
+              "data"
+            ],
+            "properties": {
+              "table": {
+                "const": "data_sources"
+              },
+              "data": {
+                "type": "object",
+                "required": [
+                  "slug",
+                  "kind",
+                  "endpoint",
+                  "tos_ok",
+                  "legality_note"
+                ],
+                "properties": {
+                  "slug": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "kind": {
+                    "enum": [
+                      "exchange_api",
+                      "free_api",
+                      "file",
+                      "rss",
+                      "paper_repo"
+                    ]
+                  },
+                  "endpoint": {
+                    "type": "string",
+                    "pattern": "^https://"
+                  },
+                  "tos_ok": {
+                    "const": true
+                  },
+                  "legality_note": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "rate_limit": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "table",
+              "data"
+            ],
+            "properties": {
+              "table": {
+                "const": "datasets"
+              },
+              "data": {
+                "type": "object",
+                "required": [
+                  "instrument",
+                  "timeframe",
+                  "source_id"
+                ],
+                "properties": {
+                  "instrument": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "timeframe": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "cleaning_status": {
+                    "const": "RAW"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

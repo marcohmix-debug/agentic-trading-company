@@ -1,0 +1,23 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "orchestrator",
+  "work_item_type": "plan",
+  "work_item_id": "standard-2026-08-24",
+  "task": {
+    "digest_context": {
+      "last_cycle_metrics": [
+        {
+          "day": "2026-08-23",
+          "net_pnl_month_cents": 12345
+        }
+      ],
+      "incidents": [],
+      "directives": [],
+      "cost_per_class": {
+        "research": 120,
+        "trading": 40,
+        "ops": 30
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "backtests",
+      "data": {
+        "strategy_id": "77aa",
+        "params_json": {
+          "fees_bps": 10,
+          "slippage_bps": 5,
+          "walk_forward": {
+            "folds": 4,
+            "train_ratio": 0.7
+          }
+        },
+        "success_criteria_json": {
+          "min_sharpe": 1.0,
+          "max_dd_pct": 15.0
+        }
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 1500,
+    "tokens_out": 300
+  }
+}

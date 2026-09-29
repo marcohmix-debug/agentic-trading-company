@@ -1,0 +1,15 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "critic",
+  "work_item_type": "critique_idea",
+  "work_item_id": "idea-4f2a",
+  "task": {
+    "target": {
+      "id": "4f2a",
+      "title": "mean reversion idea",
+      "evidence_refs": [
+        "backtest:9c1e"
+      ]
+    }
+  }
+}

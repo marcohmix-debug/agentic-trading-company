@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "critic output contract",
+  "type": "object",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "NO_OP",
+        "FAILED"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "table",
+              "data"
+            ],
+            "properties": {
+              "table": {
+                "const": "critiques"
+              },
+              "data": {
+                "type": "object",
+                "required": [
+                  "target_type",
+                  "target_id",
+                  "verdict",
+                  "score",
+                  "flaws_json"
+                ],
+                "properties": {
+                  "target_type": {
+                    "enum": [
+                      "strategy_idea",
+                      "backtest",
+                      "paper_trade_set",
+                      "literature"
+                    ]
+                  },
+                  "target_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verdict": {
+                    "enum": [
+                      "PASS",
+                      "REJECT",
+                      "REVISE"
+                    ]
+                  },
+                  "score": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "flaws_json": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "severity"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "severity": {
+                          "enum": [
+                            "critical",
+                            "major",
+                            "minor"
+                          ]
+                        },
+                        "detail": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "suggested_fixes": {
+                    "type": "string"
+                  }
+                },
+                "if": {
+                  "properties": {
+                    "flaws_json": {
+                      "contains": {
+                        "properties": {
+                          "severity": {
+                            "const": "critical"
+                          }
+                        },
+                        "required": [
+                          "severity"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "flaws_json"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "verdict": {
+                      "const": "REJECT"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

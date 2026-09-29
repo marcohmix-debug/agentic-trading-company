@@ -1,0 +1,27 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "reports",
+      "data": {
+        "kind": "cycle",
+        "summary": "cycle ok",
+        "sections_json": {
+          "costs": 192
+        }
+      }
+    },
+    {
+      "table": "experiences",
+      "data": {
+        "type": "win",
+        "scope": "process",
+        "summary": "clean cycle"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 3000,
+    "tokens_out": 600
+  }
+}

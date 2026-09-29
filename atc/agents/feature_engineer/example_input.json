@@ -1,0 +1,19 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "feature_engineer",
+  "work_item_type": "transform",
+  "work_item_id": "fs:9c1e:cycle-1",
+  "task": {
+    "base_dataset_id": "9c1e",
+    "instrument": "DFF",
+    "timeframe": "1d",
+    "cleaning_status": "RAW",
+    "base_quality_score": 0.5,
+    "quality_issues": [
+      "missing OHLCV columns; found single 'value' column",
+      "contains null gaps"
+    ],
+    "n_rows": 5000,
+    "instructions": "Propose 1-2 transform specs that turn this raw/rejected dataset into clean, tradeable data. Return rows under key 'feature_sets'."
+  }
+}

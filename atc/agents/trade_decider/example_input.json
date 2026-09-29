@@ -1,0 +1,24 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "trade_decider",
+  "work_item_type": "extract",
+  "work_item_id": "live-signals-2026-08-24",
+  "task": {
+    "portfolio": {
+      "bybit": {
+        "cash_available_cents": 1000000
+      }
+    },
+    "signals": [
+      {
+        "strategy_id": "88bb",
+        "signal": "LONG_ENTRY",
+        "instrument": "BTCUSDT"
+      }
+    ],
+    "mids": {
+      "BTCUSDT": 6200000
+    },
+    "cost_governor": "OK"
+  }
+}

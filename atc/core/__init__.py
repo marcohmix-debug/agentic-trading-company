@@ -1,0 +1,1 @@
+"""Deterministic core (showcase subset)."""

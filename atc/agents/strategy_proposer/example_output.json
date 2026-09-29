@@ -1,0 +1,35 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "strategy_ideas",
+      "data": {
+        "title": "trend on BTCUSDT",
+        "description": "example",
+        "market": "crypto_spot",
+        "instruments_json": [
+          "BTCUSDT"
+        ],
+        "timeframe": "1h",
+        "evidence_refs": [
+          "backtest:9c1e"
+        ],
+        "falsifiability": "fails if trend breaks in OOS",
+        "novelty": "no existing trend idea in funnel",
+        "family": "trend_following",
+        "indicators_json": [
+          "ema20",
+          "atr14"
+        ],
+        "params_json": {
+          "lookback": 20,
+          "stop_atr": 2.0
+        }
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 3000,
+    "tokens_out": 400
+  }
+}

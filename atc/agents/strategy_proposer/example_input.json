@@ -1,0 +1,16 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "strategy_proposer",
+  "work_item_type": "new_hypothesis",
+  "work_item_id": "funnel-2026-08-24",
+  "task": {
+    "funnel": {
+      "NEW": 1,
+      "CANDIDATE": 2,
+      "TESTED": 1
+    },
+    "evidence": [
+      "backtest:9c1e"
+    ]
+  }
+}

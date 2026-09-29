@@ -1,0 +1,48 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "feature_sets",
+      "data": {
+        "base_dataset_id": "9c1e",
+        "name": "econ_to_bars",
+        "transform_json": [
+          {
+            "op": "synthesize_ohlcv",
+            "col": "value",
+            "scale": 100
+          },
+          {
+            "op": "fill_gaps"
+          },
+          {
+            "op": "add_return",
+            "col": "close_cents",
+            "target": "ret_1"
+          },
+          {
+            "op": "add_zscore",
+            "col": "close_cents",
+            "window": 20,
+            "target": "z_20"
+          },
+          {
+            "op": "regime_filter",
+            "col": "close_cents",
+            "window": 24,
+            "drop_high_vol": true
+          }
+        ],
+        "feature_columns_json": [
+          "ret_1",
+          "z_20"
+        ],
+        "rationale": "turn a single-value economic series into tradeable bars and add features"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 2500,
+    "tokens_out": 500
+  }
+}

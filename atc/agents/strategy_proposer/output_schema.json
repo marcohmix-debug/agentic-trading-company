@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "strategy_proposer output contract",
+  "type": "object",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "NO_OP",
+        "FAILED"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "table",
+          "data"
+        ],
+        "properties": {
+          "table": {
+            "const": "strategy_ideas"
+          },
+          "data": {
+            "type": "object",
+            "required": [
+              "title",
+              "description",
+              "market",
+              "timeframe",
+              "evidence_refs",
+              "falsifiability",
+              "novelty",
+              "family"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "market": {
+                "enum": [
+                  "crypto_spot",
+                  "crypto_futures",
+                  "equities_it",
+                  "macro"
+                ]
+              },
+              "instruments_json": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "timeframe": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "falsifiability": {
+                "type": "string",
+                "minLength": 1
+              },
+              "novelty": {
+                "type": "string",
+                "minLength": 1
+              },
+              "family": {
+                "type": "string",
+                "minLength": 1
+              },
+              "indicators_json": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "params_json": {
+                "type": "object"
+              },
+              "critic_status": {
+                "const": "PENDING"
+              },
+              "status": {
+                "const": "NEW"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,13 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "backtest_analyst",
+  "work_item_type": "extract",
+  "work_item_id": "strategy-77aa",
+  "task": {
+    "strategy": {
+      "id": "77aa",
+      "status": "BACKTESTING",
+      "config_json": {}
+    }
+  }
+}

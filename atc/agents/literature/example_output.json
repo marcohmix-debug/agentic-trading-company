@@ -1,0 +1,20 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "literature",
+      "data": {
+        "kind": "paper",
+        "title": "Example",
+        "url": "https://arxiv.org/abs/2608.12345",
+        "summary": "example summary",
+        "relevance_score": 0.6,
+        "evidence_strength": "weak"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 4000,
+    "tokens_out": 800
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "data_cleaner output contract",
+  "type": "object",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "NO_OP",
+        "FAILED"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "table",
+              "data"
+            ],
+            "properties": {
+              "table": {
+                "const": "data_quality"
+              },
+              "data": {
+                "type": "object",
+                "required": [
+                  "dataset_id",
+                  "quality_score",
+                  "status"
+                ],
+                "properties": {
+                  "dataset_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "issues_json": {
+                    "type": "array"
+                  },
+                  "correction_policy": {
+                    "enum": [
+                      "drop",
+                      "interpolate",
+                      "flag"
+                    ]
+                  },
+                  "quality_score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "status": {
+                    "enum": [
+                      "PASS",
+                      "WARN",
+                      "FAIL"
+                    ]
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "const": "PASS"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "quality_score": {
+                          "minimum": 0.8
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "const": "WARN"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "quality_score": {
+                          "minimum": 0.5,
+                          "exclusiveMaximum": 0.8
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "const": "FAIL"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "quality_score": {
+                          "exclusiveMaximum": 0.5
+                        }
+                      }
+                    }
+                  }
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atc-showcase"
+version = "0.1.0"
+description = "Curated subset of an autonomous multi-agent trading system: handoff audit, untrusted-text boundary, frozen integrity limits."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["atc*"]
+
+[tool.setuptools.package-data]
+atc = ["storage/*.sql", "agents/*.md", "agents/*/*.md", "agents/*/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

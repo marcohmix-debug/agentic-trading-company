@@ -1,0 +1,20 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "data_cleaner",
+  "work_item_type": "clean",
+  "work_item_id": "dataset-9c1e",
+  "task": {
+    "dataset_id": "9c1e",
+    "summary_stats": {
+      "rows": 10000,
+      "null_pct": 0.2,
+      "dup_pct": 0.0
+    },
+    "sample_rows": [
+      {
+        "ts": "2026-08-01T00:00:00Z",
+        "close_cents": 12345
+      }
+    ]
+  }
+}

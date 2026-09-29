@@ -1,0 +1,17 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "feedback",
+  "work_item_type": "feedback_digest",
+  "work_item_id": "cycle-2026-08-24",
+  "task": {
+    "cycle": {
+      "id": "c1",
+      "kind": "standard"
+    },
+    "ledger_costs_cents": {
+      "MODEL_COST": 142,
+      "DATA_COST": 50
+    },
+    "anomalies": []
+  }
+}

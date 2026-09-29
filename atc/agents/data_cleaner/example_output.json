@@ -1,0 +1,18 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "data_quality",
+      "data": {
+        "dataset_id": "9c1e",
+        "quality_score": 0.9,
+        "status": "PASS",
+        "issues_json": []
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 2000,
+    "tokens_out": 200
+  }
+}

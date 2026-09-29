@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "read": "allow",
+    "list": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "edit": {
+      "*": "deny",
+      "**/output.json": "allow",
+      "**/heartbeat.log": "allow"
+    },
+    "bash": "deny",
+    "webfetch": "allow",
+    "websearch": "deny",
+    "task": "deny",
+    "skill": "deny",
+    "question": "deny",
+    "todowrite": "deny",
+    "lsp": "deny",
+    "external_directory": "deny",
+    "doom_loop": "deny"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "data_sources",
+      "data": {
+        "slug": "bybit_public",
+        "kind": "exchange_api",
+        "endpoint": "https://api.bybit.com",
+        "tos_ok": true,
+        "legality_note": "public API, ToS read, no personal data"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 1500,
+    "tokens_out": 300
+  }
+}

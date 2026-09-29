@@ -1,0 +1,22 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "suggestions",
+      "data": {
+        "venue": "paper",
+        "instrument": "BTCUSDT",
+        "direction": "LONG_ENTRY",
+        "quantity": 0.001,
+        "price_limit_cents": 6200000,
+        "strategy_id": "77aa",
+        "live": 0,
+        "rationale": "deterministic signal state LONG_ENTRY"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 2000,
+    "tokens_out": 300
+  }
+}

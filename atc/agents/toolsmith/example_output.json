@@ -1,0 +1,17 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "tools",
+      "data": {
+        "name": "csv_profiler",
+        "description": "profiles a CSV",
+        "status": "PROPOSED"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 2000,
+    "tokens_out": 400
+  }
+}

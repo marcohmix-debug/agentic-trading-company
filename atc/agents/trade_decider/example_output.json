@@ -1,0 +1,22 @@
+{
+  "status": "SUCCEEDED",
+  "rows": [
+    {
+      "table": "suggestions",
+      "data": {
+        "venue": "bybit",
+        "instrument": "BTCUSDT",
+        "direction": "LONG_ENTRY",
+        "quantity": 0.001,
+        "price_limit_cents": 6200000,
+        "strategy_id": "88bb",
+        "live": 0,
+        "rationale": "signal state LONG_ENTRY from deterministic signal engine"
+      }
+    }
+  ],
+  "usage": {
+    "tokens_in": 2000,
+    "tokens_out": 300
+  }
+}

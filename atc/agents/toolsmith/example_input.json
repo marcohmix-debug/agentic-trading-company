@@ -1,0 +1,12 @@
+{
+  "run_id": "<run_id>",
+  "agent_class": "toolsmith",
+  "work_item_type": "extract",
+  "work_item_id": "tool-req-1",
+  "task": {
+    "approved_request": {
+      "name": "csv_profiler",
+      "description": "profile a CSV in the sandbox"
+    }
+  }
+}
